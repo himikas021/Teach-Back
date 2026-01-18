@@ -77,10 +77,12 @@ if (hamburger && mobileMenu) {
         const menuLabel = document.querySelector ('.menu-label');
         if (hamburger.classList.contains ('active')) {
             menuLabel.textContent = 'Close';
-            document.body.style.overflow = '';
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         } else {
             menuLabel.textContent = "Menu";
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         }
         });
 
@@ -88,9 +90,11 @@ if (hamburger && mobileMenu) {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
             const menuLabel = document.querySelector('.menu-label');
             if (menuLabel) menuLabel.textContent = "Menu";
-            document.body.style.overflow = '';
+            
         });
     });
 }
